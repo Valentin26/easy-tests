@@ -1,16 +1,27 @@
 package easytests.entities;
 
-import easytests.entities.user.CommonFieldsInterface;
+/**
+ * @author malinink
+ */
+public class User implements UserInterface {
 
-public class User implements CommonFieldsInterface {
+    private Integer id;
+
     private String firstName;
+
     private String lastName;
+
     private String surname;
 
-    public User(String firstName, String lastName, String surname) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.surname = surname;
+    @Override
+    public Integer getId() {
+        return this.id;
+    }
+
+    @Override
+    public UserInterface setId(Integer id) {
+        this.id = id;
+        return this;
     }
 
     @Override
@@ -19,8 +30,20 @@ public class User implements CommonFieldsInterface {
     }
 
     @Override
+    public UserInterface setFirstName(String firstName) {
+        this.firstName = firstName;
+        return this;
+    }
+
+    @Override
     public String getLastName() {
         return this.lastName;
+    }
+
+    @Override
+    public UserInterface setLastName(String lastName) {
+        this.lastName = lastName;
+        return this;
     }
 
     @Override
@@ -28,4 +51,9 @@ public class User implements CommonFieldsInterface {
         return this.surname;
     }
 
+    @Override
+    public UserInterface setSurname(String surname) {
+        this.surname = surname;
+        return this;
+    }
 }
